@@ -1,0 +1,24 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Folios 2024
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Presión Manométrica</h1>
+    <p><a href="/">Inicio</a></p>
+    <p><a href="nuevo">Crear Folio</a></p>
+
+
+
+    <div class="list-group">
+      {% for x in misfolios %}
+      <a href="detalles/{{ x.id }}" class="list-group-item list-group-item-action">
+        <span class="font-weight-bold">{{ x.id|stringformat:"03d" }}</span> del {{ x.fecha_asignacion }} creado por {{ x.responsable }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+

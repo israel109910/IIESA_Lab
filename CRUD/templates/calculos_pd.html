@@ -1,0 +1,1609 @@
+<!-- calculos.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de cálculos</title>
+</head>
+<body>
+    <h1>Resultados de cálculos</h1>
+    {% extends "master.html" %}
+
+    {% block title %}
+      mifolios 2024
+    {% endblock %}
+    {% load mathfilters %}
+    {% block content %}
+    
+    <body class ="bg-dark text-white">
+    <div class="mx auto justify-content-center ">
+      <div class ="">
+       
+            <h1 class="mx auto justify-content-center d-flex">Desviacion en 0<h1>
+            <table class="tg table-hover table-dark mx-auto">
+            <thead>
+              <tr>
+                <th class="tg-0lax">CICLO</th>
+                <th class="tg-0lax">UNIDAD</th>
+                <th class="tg-0lax">PATRON</th>
+                <th class="tg-0lax">&nbsp;&nbsp;&nbsp;&nbsp;IBC&nbsp;&nbsp;&nbsp;&nbsp;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td >1</td>
+                <td>{{mifolio.unidades_toma_datos}}</td> 
+                <td class="tg-value">{{resultados.desviacion_ciclo1_patron}}</td>
+                <td class="tg-value">{{resultados.desviacion_ciclo1_IBC}}</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td >" "</td>
+                <td >{{resultados.desviacion_ciclo2_patron}}</td>
+                <td >{{resultados.desviacion_ciclo2_IBC}}</td>
+              </tr>
+            </tbody>
+            </table>
+            <br>
+            <br>
+            <h2 class="mx auto justify-content-center d-flex">Toma de Datos</h2>
+            <br>
+      
+            <table class="tg table-hover table-dark mx-auto">
+                <thead>
+                    <tr>
+                        <th class="tg-0pky" colspan="4">CICLO 1</th>
+                        <th class="tg-0pky" colspan="2">CICLO 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="tg-0pky">$$LC0_{P}$$</td>
+                        <td class="tg-0pky">$$LC0_{IBC}$$</td>
+                        <td class="tg-0pky">$$LC0_{P}$$</td>
+                        <td class="tg-0pky">$$LC0_{IBC}$$</td>
+                        <td class="tg-0pky">$$LC0_{P}$$</td>
+                        <td class="tg-0pky">$$LC0_{IBC}$$</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-0pky">ASCENSO</td>
+                        <td class="tg-0pky">ASCENSO</td>
+                        <td class="tg-0pky">DESCENSO</td>
+                        <td class="tg-0pky">DESCENSO</td>
+                        <td class="tg-0pky">ASCENSO</td>
+                        <td class="tg-0pky">ASCENSO</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-value average1">{{ resultados.valor_nominal1_ciclo1_lectura_patron_ascenso }}</td>
+                        <td class="tg-value average1">{{ resultados.valor_nominal1_ciclo1_lectura_IBC_ascenso }}</td>
+                        <td class="tg-value average1">{{ resultados.valor_nominal1_ciclo1_lectura_patron_descenso }}</td>
+                        <td class="tg-value average1">{{ resultados.valor_nominal1_ciclo1_lectura_IBC_descenso }}</td>
+                        <td class="tg-value average1">{{ resultados.valor_nominal1_ciclo2_lectura_patron_ascenso }}</td>
+                        <td class="tg-value average1">{{ resultados.valor_nominal1_ciclo2_lectura_IBC_ascenso }}</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-value average2">{{ resultados.valor_nominal2_ciclo1_lectura_patron_ascenso }}</td>
+                        <td class="tg-value average2">{{ resultados.valor_nominal2_ciclo1_lectura_IBC_ascenso }}</td>
+                        <td class="tg-value average2">{{ resultados.valor_nominal2_ciclo1_lectura_patron_descenso }}</td>
+                        <td class="tg-value average2">{{ resultados.valor_nominal2_ciclo1_lectura_IBC_descenso }}</td>
+                        <td class="tg-value average2">{{ resultados.valor_nominal2_ciclo2_lectura_patron_ascenso }}</td>
+                        <td class="tg-value average2">{{ resultados.valor_nominal2_ciclo2_lectura_IBC_ascenso }}</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-value average3">{{ resultados.valor_nominal3_ciclo1_lectura_patron_ascenso }}</td>
+                        <td class="tg-value average3">{{ resultados.valor_nominal3_ciclo1_lectura_IBC_ascenso }}</td>
+                        <td class="tg-value average3">{{ resultados.valor_nominal3_ciclo1_lectura_patron_descenso }}</td>
+                        <td class="tg-value average3">{{ resultados.valor_nominal3_ciclo1_lectura_IBC_descenso }}</td>
+                        <td class="tg-value average3">{{ resultados.valor_nominal3_ciclo2_lectura_patron_ascenso }}</td>
+                        <td class="tg-value average3">{{ resultados.valor_nominal3_ciclo2_lectura_IBC_ascenso }}</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-value average4">{{ resultados.valor_nominal4_ciclo1_lectura_patron_ascenso }}</td>
+                        <td class="tg-value average4">{{ resultados.valor_nominal4_ciclo1_lectura_IBC_ascenso }}</td>
+                        <td class="tg-value average4">{{ resultados.valor_nominal4_ciclo1_lectura_patron_descenso }}</td>
+                        <td class="tg-value average4">{{ resultados.valor_nominal4_ciclo1_lectura_IBC_descenso }}</td>
+                        <td class="tg-value average4">{{ resultados.valor_nominal4_ciclo2_lectura_patron_ascenso }}</td>
+                        <td class="tg-value average4">{{ resultados.valor_nominal4_ciclo2_lectura_IBC_ascenso }}</td>
+                    </tr>
+                    <tr>
+                        <td class="tg-value average5">{{ resultados.valor_nominal5_ciclo1_lectura_patron_ascenso }}</td>
+                        <td class="tg-value average5">{{ resultados.valor_nominal5_ciclo1_lectura_IBC_ascenso }}</td>
+                        <td class="tg-value average5">{{ resultados.valor_nominal5_ciclo1_lectura_patron_descenso }}</td>
+                        <td class="tg-value average5">{{ resultados.valor_nominal5_ciclo1_lectura_IBC_descenso }}</td>
+                        <td class="tg-value average5">{{ resultados.valor_nominal5_ciclo2_lectura_patron_ascenso }}</td>
+                        <td class="tg-value average5">{{ resultados.valor_nominal5_ciclo2_lectura_IBC_ascenso }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        <h2  class="mx auto justify-content-center d-flex">CORRECION DE LAS LECTURAS DEL PATRON E IBC POR DESVIACION DEL CERO</h2>
+        <h2> $$LC0_{p}=L_{p}-D0_{p}$$</h2>
+        <h2> $$LC0_{IBC}=L_{IBC}-D0_{IBC}$$</h2>
+        
+        <br>
+        
+        <table class="tg table-hover table-dark mx-auto">
+        <thead>
+        <tr>
+        <th class="tg-0pky">simbolo</th>
+        <th class="tg-0pky">descripcion</th>
+        <th class="tg-0pky">unidad</th>
+        <th class="tg-0pky">simbolo</th>
+        <th class="tg-0pky">descripcion</th>
+        <th class="tg-0lax">unidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td class="tg-0pky">$$LC0_{p}$$</td>
+        <td class="tg-0pky">Lectura corregida por desviación de cero del patrón</td>
+        <td class="tg-0pky">kPa</td>
+        <td class="tg-0pky">$$LC0_{IBC}$$</td>
+        <td class="tg-0pky">Lectura corregida por desviación de cero del IBC</td>
+        <td class="tg-0lax">kPa</td>
+        </tr>
+        <tr>
+        <td class="tg-0pky">$$L_{p}$$</td>
+        <td class="tg-0pky">Lectura del patrón</td>
+        <td class="tg-0pky">kPa</td>
+        <td class="tg-0pky">$$L_{IBC}$$</td>
+        <td class="tg-0pky">Lectura del IBC</td>
+        <td class="tg-0lax">kPa</td>
+        </tr>
+        <tr>
+        <td class="tg-0pky">$$D0_{p}$$</td>
+        <td class="tg-0pky">Desviación de cero del patrón</td>
+        <td class="tg-0pky">kPA</td>
+        <td class="tg-0pky">$$D0_{IBC}$$</td>
+        <td class="tg-0pky">Desviación de cero del IBC</td>
+        <td class="tg-0lax">kPa</td>
+        </tr>
+        
+        </tbody>
+        </table>
+
+
+        
+
+          <table class="table text-center table-hover table-dark mx-auto">
+            <thead>
+              <tr>
+                <th colspan="4" class="text-start">CICLO 1</th>
+                <th colspan="2" class="text-start">CICLO 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>$$LC0_{P}$$</td>
+                <td>$$LC0_{IBC}$$</td>
+                <td>$$LC0_{P}$$</td>
+                <td>$$LC0_{IBC}$$</td>
+                <td>$$LC0_{P}$$</td>
+                <td>$$LC0_{IBC}$$</td>
+              </tr>
+              <tr>
+                <td>ASCENSO</td>
+                <td>ASCENSO</td>
+                <td>DESCENSO</td>
+                <td>DESCENSO</td>
+                <td>ASCENSO</td>
+                <td>ASCENSO</td>
+              </tr>
+              <tr>
+                <td>{{resultados.valor_nominal1_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal1_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal1_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal1_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal1_ciclo2_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal1_ciclo2_lectura_IBC_ascenso_ajuste_a_0}}</td>
+              </tr>
+              <tr>
+                <td>{{resultados.valor_nominal2_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal2_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal2_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal2_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal2_ciclo2_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal2_ciclo2_lectura_IBC_ascenso_ajuste_a_0}}</td>
+              </tr>
+              <tr>
+                <td>{{resultados.valor_nominal3_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal3_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal3_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal3_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal3_ciclo2_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal3_ciclo2_lectura_IBC_ascenso_ajuste_a_0}}</td>
+              </tr>
+              <tr>
+                <td>{{resultados.valor_nominal4_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal4_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal4_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal4_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal4_ciclo2_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal4_ciclo2_lectura_IBC_ascenso_ajuste_a_0}}</td>
+              </tr>
+              <tr>
+                <td>{{resultados.valor_nominal5_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal5_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal5_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal5_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal5_ciclo2_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td>{{resultados.valor_nominal5_ciclo2_lectura_IBC_ascenso_ajuste_a_0}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+          
+          <table class="tg table-hover table-dark mx-auto">
+            <thead>
+              <tr>
+                <th class="tg-0lax" >$$Prom LC0_{IBC}$$</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-0lax"></td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">$$kPa$$</td>
+              </tr>
+              <tr>
+                <td>{{promedios_finales.nominal1}}</td>
+              </tr>
+              <tr>
+                <td >{{promedios_finales.nominal2}}</td>
+              </tr>
+              <tr>
+                <td>{{promedios_finales.nominal3}}</td>
+              </tr>
+              <tr>
+                <td>{{promedios_finales.nominal4}}</td>
+              </tr>
+              <tr>
+                <td >{{promedios_finales.nominal5}}</td>
+              </tr>
+
+            </tbody>
+            </table>
+            <h2 class="mx auto justify-content-center d-flex" >$$gl= (G*(1+b1*sin^{2}2\Theta)-(3.086E^{-6}*H))$$</h2>
+            <br>
+          
+          
+              <table class="tg table-hover table-dark mx-auto">
+              <thead>
+                <tr>
+                  <th class="tg-0lax">Simbolo</th>
+                  <th class="tg-0lax">Descripcion</th>
+                  <th class="tg-0lax">Unidad</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="tg-0lax">$$gl$$</td>
+                  <td class="tg-0lax">Gravedad local</td>
+                  <td class="tg-0lax">$$m/s^{2}$$</td>
+                </tr>
+                <tr>
+                  <td class="tg-0lax">$$G$$</td>
+                  <td class="tg-0lax">Gravedad en el ecuador</td>
+                  <td class="tg-0lax">$$m/s^{2}$$</td>
+                </tr>
+                <tr>
+                  <td class="tg-0lax">$$\Theta$$</td>
+                  <td class="tg-0lax">Latitud local</td>
+                  <td class="tg-0lax">$$grados$$</td>
+                </tr>
+                <tr>
+                  <td class="tg-0lax">$$H$$</td>
+                  <td class="tg-0lax">Altitud local respecto al nivel del mar</td>
+                  <td class="tg-0lax">$$m$$</td>
+                </tr>
+                <tr>
+                  <td class="tg-0lax">$$b1$$</td>
+                  <td class="tg-0lax">Constante</td>
+                  <td class="tg-0lax">adimensional</td>
+                </tr>
+                <tr>
+                  <td class="tg-0lax">$$b2$$</td>
+                  <td class="tg-0lax">Constante</td>
+                  <td class="tg-0lax">adimensional</td>
+                </tr>
+              </tbody>
+              </table>
+              <br>
+          
+                <table class="tg table-hover table-dark mx-auto ">
+                <thead>
+                  <tr>
+                    <td class="tg-0lax">$$G$$</td>
+                    <td class="tg-0lax">9.780318</td>
+                    <td class="tg-0lax">$$m/s^{2}$$</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tg-0lax">$$\Theta$$</td>
+                    <td class="tg-0lax">{{latitud}}</td>
+                    <td class="tg-0lax">$$grados$$</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">$$H$$</td>
+                    <td class="tg-0lax">{{mifolio.sitio_altura}}</td>
+                    <td class="tg-0lax">$$m$$</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">$$b1$$</td>
+                    <td class="tg-0lax">0.0053024</td>
+                    <td class="tg-0lax">adimensional</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">$$b2$$</td>
+                    <td class="tg-0lax">0.0000058</td>
+                    <td class="tg-0lax">adimensional</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">$$gl$$</td>
+                    <td class="tg-0lax">{{gravedad_local}}</td>
+                    <td class="tg-0lax">$$m/s^{2}$$</td>
+                  </tr>
+                </tbody>
+                </table>
+        <br>
+        <br>
+        <h2  class="mx auto justify-content-center d-flex">$$P_{colum}=\rho_{ah}*gl*(h_{p}-h_{IBC})$$</h2>
+  
+        <br>
+        
+        
+        <table class="tg table-hover table-dark mx-auto">
+        <thead>
+        <tr>
+          <th class="tg-0lax">Simbolo</th>
+          <th class="tg-0lax">descripcion</th>
+          <th class="tg-0lax">Unidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="tg-0lax">$$P_{colum}$$</td>
+          <td class="tg-0lax">Presion de columnda</td>
+          <td class="tg-0lax">$$kPa$$</td>
+        </tr>
+        <tr>
+          <td class="tg-0lax">$$\rho_{ah}$$</td>
+          <td class="tg-0lax">Densidad del aceite hidraulico de la bomba generadora de presion</td>
+          <td class="tg-0lax">$$kg/m^{3}$$</td>
+        </tr>
+        <tr>
+          <td class="tg-0lax">$$gl$$</td>
+          <td class="tg-0lax">Gravedad local</td>
+          <td class="tg-0lax">$$m/s^{2}$$</td>
+        </tr>
+        <tr>
+          <td class="tg-0lax">$$h_{P}$$</td>
+          <td class="tg-0lax">Altura del patron respecto al nivel de referencia</td>
+          <td class="tg-0lax">$$m$$</td>
+        </tr>
+        <tr>
+          <td class="tg-0lax">$$h_{IBC}$$</td>
+          <td class="tg-0lax">Altura del IBC respecto al nivel de referencia</td>
+          <td class="tg-0lax">$$m$$</td>
+        </tr>
+        </tbody>
+        </table>
+        
+        <br>
+        
+        <table class="tg table-hover table-dark mx-auto">
+        
+        <tbody>
+          <tr>
+            <td class="tg-0lax">$$\rho_{ah}$$</td>
+            <td class="tg-0lax">{{densidad_aire}}</td>
+            <td class="tg-0lax">$$kg/m^{3}$$</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">$$gl$$</td>
+            <td class="tg-0lax">{{gravedad_local}}</td>
+            <td class="tg-0lax">$$m$$</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">$$h_{p}$$</td>
+            <td class="tg-0lax">{{mifolio.ambientales_altura_patron}}</td>
+            <td class="tg-0lax">$$m$$</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">$$h_{IBC}$$</td>
+            <td class="tg-0lax">{{mifolio.ambientales_altura_IBC}}</td>
+            <td class="tg-0lax">$$m$$</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">$$P_{colum}$$</td>
+            <td class="tg-0lax" id="presion_columna">{{presion_columna}}</td>
+            <td class="tg-0lax">$$kPa$$</td>
+          </tr>
+        </tbody>
+        </table>
+        <h2 class="mx auto justify-content-center d-flex">$$LC_{Pcolum}=LC0_{p}-P_{colum}$$</h2>
+  
+        <br>
+      
+        <table id = "incertidumbre_desviacion_0" class="tg table-hover table-dark mx-auto">
+        <thead>
+          <tr>
+            <th class="tg-0lax" colspan="2">Ciclo 1</th>
+            <th class="tg-0lax">Ciclo 2</th>
+          </tr>
+      
+     
+          <tr>
+            <td class="tg-0lax">$$LC_{Pcolum}$$</td>
+            <td class="tg-0lax">$$LC_{Pcolum}$$</td>
+            <td class="tg-0lax">$$LC_{Pcolum}$$</td>
+          </tr>
+          <tr>
+            <td class="tg-0lax">Ascenso</td>
+            <td class="tg-0lax">Descenso</td>
+            <td class="tg-0lax">Ascenso</td>
+          </tr>
+        </thead>
+          <tbody>
+          <tr>
+            <td >{{ resultados_con_presion_columna.valor_nominal1_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+            <td >{{ resultados_con_presion_columna.valor_nominal1_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+            <td >{{resultados_con_presion_columna.valor_nominal1_ciclo2_lectura_patron_ascenso_ajuste_a_0 }}</td>
+          </tr>
+          <tr>
+            <td >{{ resultados_con_presion_columna.valor_nominal2_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+            <td >{{ resultados_con_presion_columna.valor_nominal2_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+            <td >{{resultados_con_presion_columna.valor_nominal2_ciclo2_lectura_patron_ascenso_ajuste_a_0 }}</td>
+          </tr>
+          <tr>
+            <td >{{ resultados_con_presion_columna.valor_nominal3_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+            <td >{{ resultados_con_presion_columna.valor_nominal3_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+            <td >{{resultados_con_presion_columna.valor_nominal3_ciclo2_lectura_patron_ascenso_ajuste_a_0 }}</td>
+          </tr>
+          <tr>
+            <td >{{ resultados_con_presion_columna.valor_nominal4_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+            <td >{{ resultados_con_presion_columna.valor_nominal4_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+            <td >{{resultados_con_presion_columna.valor_nominal4_ciclo2_lectura_patron_ascenso_ajuste_a_0 }}</td>
+          </tr>
+          <tr>
+            <td >{{ resultados_con_presion_columna.valor_nominal5_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+            <td >{{ resultados_con_presion_columna.valor_nominal5_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+            <td >{{resultados_con_presion_columna.valor_nominal5_ciclo2_lectura_patron_ascenso_ajuste_a_0 }}</td>
+          </tr>
+
+
+      
+        </tbody>
+        </table>
+
+        <h2  class="mx auto justify-content-center d-flex">Error Patron</h2>
+        <table class="tg table-hover table-dark mx-auto">
+            <thead>
+              <tr>
+                <th class="tg-0lax" colspan="2">Ciclo 1</th>
+                <th class="tg-0lax">Ciclo 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-0lax">$$LC_{Pcolum}$$</td>
+                <td class="tg-0lax">$$LC_{Pcolum}$$</td>
+                <td class="tg-0lax">$$LC_{Pcolum}$$</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">Ascenso</td>
+                <td class="tg-0lax">Descenso</td>
+                <td class="tg-0lax">Ascenso</td>
+              </tr>
+              <tr>
+                <td >{{error_patron.valor_nominal1_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td >{{error_patron.valor_nominal1_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                <td >{{error_patron.valor_nominal1_ciclo2_lectura_patron_ascenso_ajuste_a_0 }}</td>
+              </tr>
+              <tr>
+                <td >{{ error_patron.valor_nominal2_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td >{{ error_patron.valor_nominal2_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                <td >{{error_patron.valor_nominal2_ciclo2_lectura_patron_ascenso_ajuste_a_0 }}</td>
+              </tr>
+              <tr>
+                <td >{{ error_patron.valor_nominal3_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td >{{ error_patron.valor_nominal3_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                <td >{{error_patron.valor_nominal3_ciclo2_lectura_patron_ascenso_ajuste_a_0 }}</td>
+              </tr>
+              <tr>
+                <td >{{ error_patron.valor_nominal4_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td >{{ error_patron.valor_nominal4_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                <td >{{error_patron.valor_nominal4_ciclo2_lectura_patron_ascenso_ajuste_a_0 }}</td>
+              </tr>
+              <tr>
+                <td >{{ error_patron.valor_nominal5_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                <td >{{error_patron.valor_nominal5_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                <td >{{error_patron.valor_nominal5_ciclo2_lectura_patron_ascenso_ajuste_a_0 }}</td>
+              </tr>
+            
+        
+            </tbody>
+            </table>
+
+        </table>
+        <h2 class="mx auto justify-content-center d-flex">CORRECCION DE LAS LECTURAS DEL IBC POR EFECTO DE LA TEMPERATURA AMBIENTAL</h2>
+        <h2>$$LECT_{IBC}=LC0_{IBC}*(1+(\alpha_{IBC}*(T_{AMB}-T_{REFIBC})))$$</h2>
+        <br>
+    
+    
+          <table class="tg table-hover table-dark mx-auto">
+          <thead>
+            <tr>
+              <th class="tg-0pky">simbolo</th>
+              <th class="tg-0pky">descripcion</th>
+              <th class="tg-0pky">unidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="tg-0pky">$$LECT_{IBC}$$</td>
+              <td class="tg-0pky">Lectura corregida del IBC por efecto termico</td>
+              <td class="tg-0pky">$$kPa$$</td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">$$LC0_{IBC}$$</td>
+              <td class="tg-0pky">Lectura correcida del IBC por desviacion de cero.</td>
+              <td class="tg-0pky">$$kPa$$</td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">$$\alpha_{IBC}$$</td>
+              <td class="tg-0pky">Coeficiente termico del IBC</td>
+              <td class="tg-0pky">$$kPa/°C$$</td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">$$T_{AMB}$$</td>
+              <td class="tg-0pky">Tempera ambiental </td>
+              <td class="tg-0pky">$$kPa$$</td>
+            </tr>
+            <tr>
+              <td class="tg-0pky">$$T_{REFIBC}$$</td>
+              <td class="tg-0pky">Temperatura de referencia del coeficiente termico del IBC</td>
+              <td class="tg-0pky">$$kPa$$</td>
+            </tr>
+          </tbody>
+          </table>
+    
+          <br>
+    
+            <table class="tg table-hover table-dark mx-auto">
+       
+              <tr>
+                <td class="tg-0lax">$$\alpha_{IBC}$$</td>
+                <td class="tg-0lax" id= "coeficiente_termico">{{mifolio.coeficiente_termico}}</td>
+                <td class="tg-0lax">$$°C^{-1}$$</td>
+              </tr>
+            <tbody>
+              <tr>
+                <td class="tg-0lax">$$T_{AMB}$$</td>
+                <td class="tg-0lax" id="temp_amb">{{temperatura_amb_prom}}</td>
+                <td class="tg-0lax">$$°C$$</td>
+              </tr>
+              <tr>
+                <td class="tg-0lax">$$T_{REFIBC}$$</td>
+                <td class="tg-0lax" id="temp_ref">{{mifolio.temperatura_referencia_IBC}}</td>
+                <td class="tg-0lax">$$°C$$</td>
+              </tr>
+            </tbody>
+            </table>
+            <table id= "tabla-efecto-termico"class="tg table-hover table-dark mx-auto">
+                <thead>
+                  <tr>
+                    <th class="tg-0lax" colspan="2">Ciclo 1</th>
+                    <th class="tg-0lax">Ciclo 2 </th>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">ASCENSO </td>
+                    <td class="tg-0lax">DESCENSO </td>
+                    <td class="tg-0lax">ASCENSO </td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax">kPa</td>
+                    <td class="tg-0lax">kPa</td>
+                    <td class="tg-0lax">kPa</td>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td >{{correccion_temp.valor_nominal1_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal1_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal1_ciclo2_lectura_IBC_ascenso_ajuste_a_0 }}</td>
+                      </tr>
+                      <tr>
+                        <td >{{correccion_temp.valor_nominal2_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal2_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal2_ciclo2_lectura_IBC_ascenso_ajuste_a_0 }}</td>
+                      </tr>
+                      <tr>
+                        <td >{{correccion_temp.valor_nominal3_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal3_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal4_ciclo2_lectura_IBC_ascenso_ajuste_a_0 }}</td>
+                      </tr>
+                      <tr>
+                        <td >{{correccion_temp.valor_nominal4_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal4_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal4_ciclo2_lectura_IBC_ascenso_ajuste_a_0 }}</td>
+                      </tr>
+                      <tr>
+                        <td >{{correccion_temp.valor_nominal5_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal5_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal5_ciclo2_lectura_IBC_ascenso_ajuste_a_0 }}</td>
+                      </tr>
+                    
+                
+                    </tbody>
+                    </table>
+
+                    <h2 class="mx auto justify-content-center d-flex">PROMEDIO DE LAS LECTURAS CORREGIDAS DEL PATRON Y DEL IBC Y CALCULO DEL ERROR</H2>
+                        <h2>$$E=LC_{IBC}-(LC_{P}-E_{P})$$</h2>
+                        <h2>$$LC_{P}=\sum_{n=1}^{n}\frac{LC_{Pxcolum}}{n}$$</h2>
+                        <h2>$$LC_{IBC}=\sum_{n=1}^{n}\frac{LCET_{IBC}}{n}$$</h2>
+                        <h2>$$E_{P}=\sum_{n=1}^{n}\frac{E_{P}}{n}$$</h2>
+          
+                        <br>
+          
+                      <table class="tg table-hover table-dark mx-auto" >
+                          <thead>
+                            <tr>
+                              <th class="tg-0pky">Simbolo</th>
+                              <th class="tg-0pky">Descripcion</th>
+                              <th class="tg-0pky">Unidad</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="tg-0pky">$$E$$</td>
+                              <td class="tg-0pky">Error</td>
+                              <td class="tg-0pky">$$kPa$$</td>
+                            </tr>
+                            <tr>
+                              <td class="tg-0pky">$$LC_{IBC}$$</td>
+                              <td class="tg-0pky">Promedio de las lecturas corregidas del IBC</td>
+                              <td class="tg-0pky">$$kPa$$</td>
+                            </tr>
+                            <tr>
+                              <td class="tg-0pky">$$LC_{P}$$</td>
+                              <td class="tg-0pky">Promedio de las lecturas corregidas del patron			
+                              </td>
+                              <td class="tg-0pky">$$kPa$$</td>
+                            </tr>
+                            <tr>
+                              <td class="tg-0pky">$$LCET_{IBC}$$</td>
+                              <td class="tg-0pky">Lecturas corregidas del IBC por efecto termico			
+                              </td>
+                              <td class="tg-0pky">$$kPa$$</td>
+                            </tr>
+                            <tr>
+                              <td class="tg-0pky">$$LC_{Pxcolum}$$</td>
+                              <td class="tg-0pky">Lecturas corregidas del patron por columna			
+                              </td>
+                              <td class="tg-0pky">$$kPa$$</td>
+                            </tr>
+                            <tr>
+                              <td class="tg-0pky">$$E_{P}$$</td>
+                              <td class="tg-0pky">Error del patron 			
+                              </td>
+                              <td class="tg-0pky">$$kPa$$</td>
+                            </tr>
+                            <tr>
+                              <td class="tg-0pky">$$n$$</td>
+                              <td class="tg-0pky">Numero de lecturas realizadas en el punto de calibracion			
+                              </td>
+                              <td class="tg-0pky">$$Adimensional$$</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                          <br>
+                    
+              <br>
+
+              <table  class="table table-hover table-dark mx-auto text-center ">
+                <thead>
+                  <tr>
+                    <th class="tg-0lax">$$LC_{P}$$</th>
+                    <th class="tg-0lax">$$LC_{IBC}$$</th>
+                    <th class="tg-0lax">$$E_{P}$$</th>
+                    <th class="tg-0lax">$$E$$</th>
+                  </tr>
+                  <tr>
+                    <th class="tg-0lax">$$kPa$$</th>
+                    <th class="tg-0lax">$$kPa$$</th>
+                    <th class="tg-0lax">$$kPa$$</th>
+                    <th class="tg-0lax">$$kPa$$</th>
+                  </tr>
+                </thead>
+                <tbody  >
+                  <tr class="rowP ">
+                    <td>  {{promedios_finales_lcp.nominal1}}</td>
+                    <td>{{promedios_finales_lcetibc.nominal1}}</td>
+                    <td >{{promedios_finales_ep.nominal1}}</td>
+                    <td>{{E_values.nominal1}}</td>
+                  </tr>
+                  <tr class="rowP">
+                    <td>  {{promedios_finales_lcp.nominal2}}</td>
+                    <td >{{promedios_finales_lcetibc.nominal2}}</td>
+                    <td >{{promedios_finales_ep.nominal2}}</td>
+                    <td>{{E_values.nominal2}}</td>
+                  </tr>
+                  <tr class="rowP">
+                    <td >  {{promedios_finales_lcp.nominal3}}</td>
+                    <td >{{promedios_finales_lcetibc.nominal3}}</td>
+                    <td >{{promedios_finales_ep.nominal3}}</td>
+                    <td>{{E_values.nominal3}}</td>
+                  </tr>
+                  <tr class="rowP">
+                    <td >  {{promedios_finales_lcp.nominal4}}</td>
+                    <td >{{promedios_finales_lcetibc.nominal4}}</td>
+                    <td >{{promedios_finales_ep.nominal4}}</td>
+                    <td>{{E_values.nominal4}}</td>
+                  </tr>
+                  <tr class="rowP">
+                    <td >  {{promedios_finales_lcp.nominal5}}</td>
+                    <td >{{promedios_finales_lcetibc.nominal5}}</td>
+                    <td >  {{promedios_finales_ep.nominal5}}</td>
+                    <td>{{E_values.nominal5}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA HISTERISIS IBC </h2>
+              <h2>$$H_{IBC}=LCETA_{IBC}-LCETA_{IBC}$$</h2>
+            
+                <br>
+            
+                <table class="tg table-hover table-dark mx-auto">
+                <thead>
+                  <tr>
+                    <th class="tg-0pky">simbolo </th>
+                    <th class="tg-0pky">descripcion</th>
+                    <th class="tg-0pky">unidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tg-0pky">$$H_{IBC}$$</td>
+                    <td class="tg-0pky">Histererisis del IBC</td>
+                    <td class="tg-0pky">$$kPa$$</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0pky">$$LCETA_{IBC}$$</td>
+                    <td class="tg-0pky">lectura corregida por efecto termico en el IBC en ascenso</td>
+                    <td class="tg-0pky">$$kPa$$</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0pky">$$LCETA_{IBC}$$</td>
+                    <td class="tg-0pky">lectura corregida por efecto termico en el IBC en descenso </td>
+                    <td class="tg-0pky">$$kPa$$</td>
+                  </tr>
+                </tbody>
+                </table>
+                <br>
+                <table id="tablaEntrada" class="tg table-hover table-dark mx-auto ">
+                    <thead>
+                      <tr>
+                        <th class="tg-0lax">$$LCETA_{IBC}$$</th>
+                        <th class="tg-0lax">$$LCETD_{IBC}$$</th>
+                        <th class="tg-0lax">$$H_{IBC}$$</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr >
+                        <td>{{correccion_temp.valor_nominal1_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal1_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                        <td >{{histeresis_IBC.valor_nominal1_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                      </tr>
+                      <tr >
+                        <td>{{correccion_temp.valor_nominal2_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal2_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                        <td >{{histeresis_IBC.valor_nominal2_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                      </tr>
+                      <tr >
+                        <td>{{correccion_temp.valor_nominal3_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal3_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                        <td >{{histeresis_IBC.valor_nominal3_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                      </tr>
+                      <tr >
+                        <td>{{correccion_temp.valor_nominal4_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal4_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                        <td >{{histeresis_IBC.valor_nominal4_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                      </tr>
+                      <tr >
+                        <td>{{correccion_temp.valor_nominal5_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                        <td >{{correccion_temp.valor_nominal5_ciclo1_lectura_IBC_descenso_ajuste_a_0}}</td>
+                        <td >{{histeresis_IBC.valor_nominal5_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+                      </tr>
+
+
+                    </tbody>
+                    </tbody>
+                    </table>      
+                    <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA HISTERESIS DEL PATRON</h2>
+                    <h2>$$H_{P}=LCA_{Pxcolumn}-LCD_{Pxcolumn}$$</h2>
+                    <br>
+                
+                    <table class="tg table-hover table-dark mx-auto">
+                      <thead>
+                        <tr>
+                          <th class="tg-0pky">simbolo </th>
+                          <th class="tg-0pky">descripcion</th>
+                          <th class="tg-0pky">unidad</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="tg-0pky">$$H_{P}$$</td>
+                          <td class="tg-0pky">Histererisis del Patron</td>
+                          <td class="tg-0pky">$$kPa$$</td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0pky">$$LCETA_{P}$$</td>
+                          <td class="tg-0pky">lectura corregida por efecto termico en el Patron en ascenso</td>
+                          <td class="tg-0pky">$$kPa$$</td>
+                        </tr>
+                        <tr>
+                          <td class="tg-0pky">$$LCETD_{P}$$</td>
+                          <td class="tg-0pky">lectura corregida por efecto termico en el Patron en descenso </td>
+                          <td class="tg-0pky">$$kPa$$</td>
+                        </tr>
+                      </tbody>
+                      </table>
+                      <br>
+                      <table id="tablaEntrada" class="tg table-hover table-dark mx-auto ">
+                        <thead>
+                          <tr>
+                            <th class="tg-0lax">$$LCETA_{IBC}$$</th>
+                            <th class="tg-0lax">$$LCETD_{IBC}$$</th>
+                            <th class="tg-0lax">$$H_{P}$$</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr >
+                            <td>{{resultados_con_presion_columna.valor_nominal1_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                            <td>{{resultados_con_presion_columna.valor_nominal1_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                            <td >{{histeresis_patron.valor_nominal1_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                          </tr>
+                          <tr >
+                            <td>{{resultados_con_presion_columna.valor_nominal2_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                            <td >{{resultados_con_presion_columna.valor_nominal2_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                            <td >{{histeresis_patron.valor_nominal2_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                          </tr>
+                          <tr >
+                            <td>{{resultados_con_presion_columna.valor_nominal3_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                            <td >{{resultados_con_presion_columna.valor_nominal3_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                            <td >{{histeresis_patron.valor_nominal3_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                          </tr>
+                          <tr >
+                            <td>{{resultados_con_presion_columna.valor_nominal4_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                            <td >{{resultados_con_presion_columna.valor_nominal4_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                            <td >{{histeresis_patron.valor_nominal4_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                          </tr>
+                          <tr >
+                            <td>{{resultados_con_presion_columna.valor_nominal5_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                            <td >{{resultados_con_presion_columna.valor_nominal5_ciclo1_lectura_patron_descenso_ajuste_a_0}}</td>
+                            <td >{{histeresis_patron.valor_nominal5_ciclo1_lectura_patron_ascenso_ajuste_a_0}}</td>
+                          </tr>
+
+                        </tbody>
+                        </tbody>
+                        </table>  
+                        <table class = "tg table-hover table-dark mx-auto">
+                        </tr>
+                        <td>$$Hp$$</td>
+                        <td >{{max_value_hp}}</td>
+                        <td>$$kPa$$</td>
+                        </tr>
+                      
+                        <h1> CALCULO DE LA INCERTIDUMBRE </h1>
+
+                        <table class = "tg table-hover table-dark mx-auto">
+                          <thead>
+                            <tr>
+                              <th>Magnitud de entrada</th>
+                              <th>Fuentes de incertidumbre asociadas a cada magnitud de entrada</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td rowspan="4">$$LC_{IBC}$$</td>
+                              <td>Resolucion del IBC.</td>
+                            </tr>
+                            <tr>
+                              <td>Histeresis del IBC </td>
+                            </tr>
+                            <tr>
+                              <td>Variacion del cero durante la calibracion del IBC</td>
+                            </tr>
+                            <tr>
+                              <td>Repetibilidad del IBC</td>
+                            </tr>
+                            <tr>
+                              <td rowspan="10">$$LC_{P}$$</td>
+                              <td>Calibracion del patron</td>
+                            </tr>
+                            <tr>
+                              <td>curva de ajuste de la incertidumbre</td>
+                            </tr>
+                            <tr>
+                              <td>Deriva del patron</td>
+                            </tr>
+                            <tr>
+                              <td>Variacion del cero durante la calibracion del patron </td>
+                            </tr>
+                            <tr>
+                              <td>Repetibilidad del patrón</td>
+                            </tr>
+                            <tr>
+                              <td>Histeresis del patrón</td>
+                            </tr>
+                            <tr>
+                              <td>Diferencia de alturas entre el patron y el IBC</td>
+                            </tr>
+                            <tr>
+                              <td>Densidad del fluido manometrico del patron</td>
+                            </tr>
+                            <tr>
+                              <td>Gravedad local que afecta la columna hidrostatica</td>
+                            </tr>
+                            <tr>
+                              <td>Repetibilidad y reproducibilidad del laboratorio</td>
+                            </tr>
+                          </tbody>
+                          </table>
+                      
+                          <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR RESOLUCION DEL IBC</h2>
+                          <h2>$$u_{res-IBC}=\frac{RES_{IBC}}{\sqrt{12}}$$</h2>
+                          <table class="tg table-hover table-dark mx-auto">
+                            <thead>
+                              <tr>
+                                <th>Simbolo</th>
+                                <th>Descripcion</th>
+                                <th>Unidad</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>$$u_{res-IBC}$$</td>
+                                <td>Incertidumbre por resolución del IBC</td>
+                                <td>kPa</td>
+                              </tr>
+                              <tr>
+                                <td>$$RES_{IBC}$$</td>
+                                <td>Resolución del IBC</td>
+                                <td>kPa</td>
+                              </tr>
+                            </tbody>
+                            </table>
+                      
+                      
+                            <table class="tg table-hover table-dark mx-auto incertidumbre_total">
+                              <thead>
+                                <tr>
+                                  <th>$$u_{res-IBC}$$</th>
+                                </tr>
+                                <tr>
+                                  <td>kPa</td>
+                                </tr>
+                              </thead>
+                      
+                                <tbody>
+                      
+                                <tr>
+                                  <td>{{incertidumbre_resolucion}}</td>
+                                </tr>
+                                <tr>
+                                  <td>{{incertidumbre_resolucion}}</td>
+                                </tr>
+                                <tr>
+                                  <td>{{incertidumbre_resolucion}}</td>
+                                </tr>
+                                <tr>
+                                  <td>{{incertidumbre_resolucion}}</td>
+                                </tr>
+                                <tr>
+                                  <td>{{incertidumbre_resolucion}}</td>
+                                </tr>
+                              </tbody>
+                              </table>
+                      <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR HISTERESIS DEL IBC</h2>							
+                      <h2>$$u_{H-IBC}=\frac{H_{IBC}}{\sqrt{12}}$$</h2>
+                      <table class="tg table-hover table-dark mx-auto">
+                        <thead>
+                          <tr>
+                            <th>Simbolo</th>
+                            <th>Descripcion</th>
+                            <th>Unidad</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>$$u_{H-IBC}$$</td>
+                            <td>Incertidumbre por histeresis del IBC</td>
+                            <td>kPa</td>
+                          </tr>
+                          <tr>
+                            <td>$$H_{IBC}$$</td>
+                            <td>Histeresis del IBC</td>
+                            <td>kPa</td>
+                          </tr>
+                        </tbody>
+                        </table>
+
+
+  </div><table id="tablaSalida" class="tg table-hover table-dark mx-auto incertidumbre_total">
+    <thead>
+      <tr>
+        <th>$$u_{H-IBC}$$</th>
+      </tr>
+      <tr>
+        <td>kPa</td>
+      </thead>
+  
+      </tr>
+      <tbody>
+  
+        <tr>
+            <td>{{incertidumbre_histererisis_ibc.valor_nominal1_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+          </tr>
+          <tr>
+            <td>{{incertidumbre_histererisis_ibc.valor_nominal2_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+          </tr>
+          <tr>
+            <td>{{incertidumbre_histererisis_ibc.valor_nominal3_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+          </tr>
+          <tr>
+            <td>{{incertidumbre_histererisis_ibc.valor_nominal4_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+          </tr>
+          <tr>
+            <td>{{incertidumbre_histererisis_ibc.valor_nominal5_ciclo1_lectura_IBC_ascenso_ajuste_a_0}}</td>
+          </tr>
+    </tbody>
+    </table>
+    
+<h2 class="mx auto justify-content-center d-flex" >CALCULO DE LA INCERTIDUMBRE POR DERIVIA DE 0 DEL IBC</h2>
+<h2> $$u_{D0-IBC}=\frac{L0C1_{IBC}-L0C2_{IBC}}{\sqrt{3}}$$</h2>
+<table class="tg table-hover table-dark mx-auto">
+  <thead>
+    <tr>
+      <th>Simbolo</th>
+      <th>Descripcion</th>
+      <th>Unidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$$u_{res-IBC}$$</td>
+      <td>Incertidumbre por resolución del IBC</td>
+      <td>kPa</td>
+    </tr>
+    <tr>
+      <td>$$RES_{IBC}$$</td>
+      <td>Resolución del IBC</td>
+      <td>kPa</td>
+    </tr>
+    <tr>
+      <td>$$RES_{IBC}$$</td>
+      <td>Resolución del IBC</td>
+      <td>kPa</td>
+    </tr>
+  </tbody>
+  </table>
+  
+  <table class="tg table-hover table-dark mx-auto incertidumbre_total">
+    <thead>
+      <tr>
+        <th>$$u_{res-IBC}$$</th>
+      </tr>
+    
+      <tr>
+        <td>kPa</td>
+      </tr>
+    </thead>
+      <tbody>
+      <tr>
+        <td>{{incertidumbre_deriva_0}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_deriva_0}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_deriva_0}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_deriva_0}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_deriva_0}}</td>
+      </tr>
+    </tbody>
+    </table>
+
+    <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR REPETIBILIDAD DEL IBC</H2>
+        <h2>$$u_{rep-IBC}=\frac{DE-LCET_{IBC}}{\sqrt{n. de repeticiones}}$$</h2>
+
+
+
+<table class="tg table-hover table-dark mx-auto incertidumbre_total">
+    <thead>
+      <tr>
+        <th>$$u_{rep-IBC}$$</th>
+      </tr>
+    
+      <tr>
+        <td>kPa</td>
+      </tr>
+    </thead>
+      <tbody>
+      <tr>
+        <td>{{incertidumbre_repetibilidad_IBC.1}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_repetibilidad_IBC.2}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_repetibilidad_IBC.3}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_repetibilidad_IBC.4}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_repetibilidad_IBC.5}}</td>
+      </tr>
+    </tbody>
+    </table>
+    <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR CALIBRACION DEL PATRON</h2>
+    <h2>$$u_{CC-P}=\frac{CC_{p}}{2}$$</h2>
+
+    <table class="tg table-hover table-dark mx-auto incertidumbre_total">
+        <thead>
+          <tr>
+            <th>$$u_{CC-P}$$</th>
+          </tr>
+        
+          <tr>
+            <td>kPa</td>
+          </tr>
+        </thead>
+          <tbody>
+          <tr>
+            <td>{{incertidumbre_cal_patron.nominal1}}</td>
+          </tr>
+          <tr>
+            <td>{{incertidumbre_cal_patron.nominal2}}</td>
+          </tr>
+          <tr>
+            <td>{{incertidumbre_cal_patron.nominal3}}</td>
+          </tr>
+          <tr>
+            <td>{{incertidumbre_cal_patron.nominal4}}</td>
+          </tr>
+          <tr>
+            <td>{{incertidumbre_cal_patron.nominal5}}</td>
+          </tr>
+          
+          
+        </tbody>
+        </table>
+        <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR CURVA DE AJUSTE DE LA INCERTIDUMBRE  </h2>
+        <h2>$$u_{CAC-P}=\frac{CAC_{p}}{\sqrt{12}}$$</h2>
+          <table class="tg table-hover table-dark mx-auto incertidumbre_total">
+            <thead>
+              <tr>
+                <th>$$u_{res-IBC}$$</th>
+              </tr>
+              <tr>
+                <td>kPa</td>
+              </tr>
+            </thead>
+            <tbody>
+          
+              <tr>
+                <td>{{incertidumbre_curva_patron}}</td>
+              </tr>
+              <tr>
+                <td>{{incertidumbre_curva_patron}}</td>
+              </tr>
+              <tr>
+                <td>{{incertidumbre_curva_patron}}</td>
+              </tr>
+              <tr>
+                <td>{{incertidumbre_curva_patron}}</td>
+              </tr>
+              <tr>
+                <td>{{incertidumbre_curva_patron}}</td>
+              </tr>
+            </tbody>
+            </table>
+        
+            <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR CURVA DE AJUSTE DEL ERROR	</h2>
+            <h2>$$u_{CAE-P}=\frac{CAE_{p}}{\sqrt{12}}$$</h2>
+        
+            <table class="tg table-hover table-dark mx-auto incertidumbre_total">
+              <thead>
+                <tr>
+                  <th>$$u_{res-IBC}$$</th>
+                </tr>
+                <tr>
+                  <td>kPa</td>
+                </tr>
+              </thead>
+              <tbody>
+            
+                <tr>
+                  <td>{{incertidumbre_curva_patron_error}}</td>
+                </tr>
+                <tr>
+                  <td>{{incertidumbre_curva_patron_error}}</td>
+                </tr>
+                <tr>
+                  <td>{{incertidumbre_curva_patron_error}}</td>
+                </tr>
+                <tr>
+                  <td>{{incertidumbre_curva_patron_error}}</td>
+                </tr>
+                <tr>
+                  <td>{{incertidumbre_curva_patron_error}}</td>
+                </tr>
+              </tbody>
+              </table>
+        
+              <h2 class="mx auto justify-content-center d-flex"> CALCULO DE LA INCERTIDUMBRE POR DERIVA DEL PATRON   </h2>
+              <h2>$$u_{DER-P}=\frac{DER{p}}{\sqrt{12}}$$</h2>
+        
+              
+            <table class="tg table-hover table-dark mx-auto incertidumbre_total">
+              <thead>
+                <tr>
+                  <th>$$u_{res-IBC}$$</th>
+                </tr>
+                <tr>
+                  <td>kPa</td>
+                </tr>
+              </thead>
+              <tbody>
+            
+                <tr>
+                  <td>{{incertidumbre_deriva_patron}}</td>
+                </tr>
+                <tr>
+                  <td>{{incertidumbre_deriva_patron}}</td>
+                </tr>
+                <tr>
+                  <td>{{incertidumbre_deriva_patron}}</td>
+                </tr>
+                <tr>
+                  <td>{{incertidumbre_deriva_patron}}</td>
+                </tr>
+                <tr>
+                  <td>{{incertidumbre_deriva_patron}}</td>
+                </tr>
+              </tbody>
+              </table>
+        
+        
+        <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR VARIACION DEL 0 DEL PATRON</h2>
+        <h2>$$u_{D0-P}=\frac{L0CP1_{p}-L0CP2_{p}}{\sqrt{3}}$$</h2>
+        
+        <table class="tg table-hover table-dark mx-auto incertidumbre_total">
+          <thead>
+            <tr>
+              <th>$$u_{res-IBC}$$</th>
+            </tr>
+            <tr>
+              <td>kPa</td>
+            </tr>
+          </thead>
+          <tbody>
+        
+            <tr>
+              <td>{{incertidumbre_deriva_0_patron}}</td>
+            </tr>
+            <tr>
+              <td>{{incertidumbre_deriva_0_patron}}</td>
+            </tr>
+            <tr>
+              <td>{{incertidumbre_deriva_0_patron}}</td>
+            </tr>
+            <tr>
+              <td>{{incertidumbre_deriva_0_patron}}</td>
+            </tr>
+            <tr>
+              <td>{{incertidumbre_deriva_0_patron}}</td>
+            </tr>
+          </tbody>
+          </table>
+
+          <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR REPETIBILIDAD DEL PATRON</h2>
+<h2>$$u_{rep-P}=\frac{DE-LC_{Pcolum}}{\sqrt{n. repeticiones}}$$</h2>
+
+<table class="tg table-hover table-dark mx-auto incertidumbre_total">
+    <thead>
+      <tr>
+        <th>$$u_{res-IBC}$$</th>
+      </tr>
+      <tr>
+        <td>kPa</td>
+      </tr>
+    </thead>
+    <tbody>
+  
+      <tr>
+        <td>{{incertidumbre_repetibilidad_patron.1}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_repetibilidad_patron.2}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_repetibilidad_patron.3}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_repetibilidad_patron.4}}</td>
+      </tr>
+      <tr>
+        <td>{{incertidumbre_repetibilidad_patron.5}}</td>
+      </tr>
+    </tbody>
+    </table>
+
+
+    </table>
+
+    <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR HISTERESIS DEL PATRON		</h2>						
+
+    <h2>$$𝑢_{𝐻−𝑃}=\frac{H_{p}}{\sqrt{12}}$$</h2>
+
+    
+
+  <table class="tg table-hover table-dark mx-auto resultado_deriva_0 incertidumbre_total">
+    <thead>
+      <tr>
+        <th>$$u_{res-IBC}$$</th>
+      </tr>
+      <tr>
+        <td>kPa</td>
+      </tr>
+    </thead>
+
+      <tbody>
+
+      <tr>
+        <td >{{incertidumbre_hp}}</td>
+      </tr>
+      <tr>
+        <td >{{incertidumbre_hp}}</td>
+      </tr>
+      <tr>
+        <td >{{incertidumbre_hp}}</td>
+      </tr>
+      <tr>
+        <td >{{incertidumbre_hp}}</td>
+      </tr>
+      <tr>
+        <td >{{incertidumbre_hp}}</td>
+      </tr>
+  
+
+    </tbody>
+    </table>
+    <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR PRESION DE COLUMNA</h2>
+    <h2>$$u_{P_{\text{colum}}} = \sqrt{ (g \cdot l \cdot \Delta h \cdot u_p)^2 + (\rho \cdot \Delta h \cdot u_p)^2 + (g \cdot l \cdot \rho \cdot u_{\Delta h})^2 }$$</h2>
+    <h3>$$u_{gl} = \frac{0.0001 \cdot gl}{\sqrt{12}}$$</h3>
+    <h3>$$u_{\rho} = \frac{0.01 \cdot \rho}{\sqrt{12}}$$</h3>
+    <h3>$$u_{\Delta h} = \sqrt{\left(\frac{U_{\text{regla}}}{2}\right)^2 + u_{hP}^2 + u_{hIBC}^2}$$</h3>
+      
+    
+    <table class = "tg table-hover table-dark mx-auto">
+      <tr>
+          <th>Simbolo</th>
+          <th>Descripcion</th>
+          <th>Unidad</th>
+      </tr>
+      <tr>
+          <td>Upcolum</td>
+          <td>Incertidumbre por presion de columna</td>
+          <td>kPa</td>
+      </tr>
+      <tr>
+          <td>ugl</td>
+          <td>Incertidumbre por calculo de la gravedad local</td>
+          <td>m/s²</td>
+      </tr>
+      <tr>
+          <td>uρ</td>
+          <td>Incertidumbre por la densidad del fluido hidraulico de la bomba generadora de presion</td>
+          <td>kg/m³</td>
+      </tr>
+      <tr>
+          <td>uΔh</td>
+          <td>Incertidumbre de la medicion de la diferencia de alturas entre el IBC y el patron</td>
+          <td>m</td>
+      </tr>
+      <tr>
+          <td>Uregla</td>
+          <td>Incertidumbre expandidad del certificado de calibracion de la regla</td>
+          <td>m</td>
+      </tr>
+      <tr>
+          <td>uhP</td>
+          <td>Incertidumbre en la medicion de la altura del patron</td>
+          <td>m</td>
+      </tr>
+      <tr>
+          <td>uhIBC</td>
+          <td>Incertidumbre en la medicion de la altura del patron</td>
+          <td>m</td>
+      </tr>
+      <tr>
+          <td>gl</td>
+          <td>Gravedad local</td>
+          <td>m/s²</td>
+      </tr>
+      <tr>
+          <td>ρ</td>
+          <td>Densidad del fluido hidraulico de la bomba generadora de presion</td>
+          <td>kg/m³</td>
+      </tr>
+      <tr>
+          <td>Δh</td>
+          <td>Diferencia de alturas entre el IBC y el patron</td>
+          <td>m</td>
+      </tr>
+      <tr>
+          <td>DLCPxcolum</td>
+          <td>Deriva del patron</td>
+          <td>kPa</td>
+      </tr>
+    </table>
+    <br>
+    <table class = "tg table-hover table-dark mx-auto">
+      <tr>
+          <th>Simbolo</th>
+          <th>Unidad</th>
+          <th>Valor</th>
+      </tr>
+      <tr>
+          <td>$$ugl$$</td>
+          <td>m/s²</td>
+          <td>{{u_gravedad_local}}</td>
+      </tr>
+      <tr>
+          <td>$$upA$$</td>
+          <td>kg/m³</td>
+          <td>{{incertidumbre_densidad_aire}}</td>
+      </tr>
+      <tr>
+          <td>$$uΔh$$</td>
+          <td>m</td>
+          <td>{{u_diferencia_altura}}</td>
+      </tr>
+    </table>
+    <br>
+    
+    <table class="tg table-hover table-dark mx-auto incertidumbre_total">
+      <thead>
+        <tr>
+          <th>$$u_{res-IBC}$$</th>
+        </tr>
+        <tr>
+          <td>kPa</td>
+        </tr>
+      </thead>
+      <tbody>
+    
+        <tr>
+          <td>{{u_PCOL}}</td>
+        </tr>
+        <tr>
+          <td>{{u_PCOL}}</td>
+        </tr>
+        <tr>
+          <td>{{u_PCOL}}</td>
+        </tr>
+        <tr>
+          <td>{{u_PCOL}}</td>
+        </tr>
+        <tr>
+          <td>{{u_PCOL}}</td>
+        </tr>
+      </tbody>
+      </table>
+      <h2 class="mx auto justify-content-center d-flex">CALCULO DE LA INCERTIDUMBRE POR REPRODUCIBILIDAD	</h2>							
+    
+      <h2 >$$u_{\text{REPRO-P}} = \text{REPRO}_P$$</h2>
+      <table class="tg table-hover table-dark mx-auto ">
+        <thead>
+          <tr>
+            <th>Símbolo</th>
+            <th>Descripción</th>
+            <th>Unidad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$$u_{REPRO-P}$$</td>
+            <td>Incertidumbre por reproducibilidad del patrón</td>
+            <td>kPa</td>
+          </tr>
+          <tr>
+            <td>$$REPROP$$</td>
+            <td>Reproducibilidad del patrón</td>
+            <td>k</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="tg table-hover table-dark mx-auto incertidumbre_total">
+        <thead>
+          <tr>
+            <th>$$u_{res-IBC}$$</th>
+          </tr>
+          <tr>
+            <td>kPa</td>
+          </tr>
+        </thead>
+        <tbody>
+      
+          <tr>
+            <td>{{u_reproducibilidad}}</td>
+          </tr>
+          <tr>
+            <td>{{u_reproducibilidad}}</td>
+          </tr>
+          <tr>
+            <td>{{u_reproducibilidad}}</td>
+          </tr>
+          <tr>
+            <td>{{u_reproducibilidad}}</td>
+          </tr>
+          <tr>
+            <td>{{u_reproducibilidad}}</td>
+          </tr>
+        </tbody>
+        </table>
+    
+
+        <h2>$$U combinada$$ </h2>
+
+        <table class="tg table-hover table-dark mx-auto">
+          <thead>
+            <tr>
+              <th>Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ u_total_duplicado.u_1 }}</td>
+            </tr>
+            <tr>
+              <td>{{ u_total_duplicado.u_2 }}</td>
+            </tr>
+            <tr>
+              <td>{{ u_total_duplicado.u_3 }}</td>
+            </tr>
+            <tr>
+              <td>{{ u_total_duplicado.u_4 }}</td>
+            </tr>
+            <tr>
+              <td>{{ u_total_duplicado.u_5 }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+</div>
+</body>
+</html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+<script type="text/javascript" id="MathJax-script" async
+src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{% endblock %}

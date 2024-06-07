@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Folios 2024
+{% endblock %}
+
+
+{% block content %}
+  <h1>Flujo Volumetrico Dinamico</h1>
+  <p><a href="/">Inicio</a></p>
+  
+  <ul>
+    {% for x in misfolios %}
+    <li>{{ x.id }} {{ x.id }} {{ x.responsable }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

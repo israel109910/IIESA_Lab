@@ -1,0 +1,134 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<div class="container-fluid py-5 bg-light text-white">
+    <form method="POST">
+        {% csrf_token %}
+        
+        <h1 class="text-danger">Desviacion en 0</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>CICLO</th>
+                    <th>UNIDAD</th>
+                    <th>PATRON</th>
+                    <th>IBC</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>{{ form.unidades_toma_datos }}</td>
+                    <td>{{ form.desviacion_ciclo1_patron }}</td>
+                    <td>{{ form.desviacion_ciclo1_IBC }}</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>" "</td>
+                    <td>{{ form.desviacion_ciclo2_patron }}</td>
+                    <td>{{ form.desviacion_ciclo2_IBC }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h1 class="text-danger">Toma de Datos</h1>
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th class="tg-0lax"></th>
+                <th class="tg-0lax">CICLO 1</th>
+                <th class="tg-0lax"></th>
+                <th class="tg-0lax"></th>
+                <th class="tg-0lax"></th>
+                <th class="tg-0lax">CICLO 2</th>
+        
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky">LECTUA PATRON </td>
+                <td class="tg-0pky">LECTURA IBC</td>
+                <td class="tg-0pky">LECTURA PATRON</td>
+                <td class="tg-0pky">LECTURA IBC</td>
+                <td class="tg-0pky">LECTURA PATRON</td>
+                <td class="tg-0pky">LECTURA IBC</td>
+              </tr>
+              <tr>
+                <td class="tg-9wq8"></td>
+                <td class="tg-0pky">ASCENSO</td>
+                <td class="tg-0pky">ASCENSO</td>
+                <td class="tg-0pky">DESCENSO</td>
+                <td class="tg-0pky">DESCENSO</td>
+                <td class="tg-0pky">ASCENSO</td>
+                <td class="tg-0pky">ASCENSO</td>
+              </tr>
+           
+              <tr>
+                <td class="tg-0pky">VALORES NOMINALES</td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+                <td class="tg-0pky"></td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">{{form.valor_nominal1}}</td>
+                <td class="tg-0pky">{{form.valor_nominal1_ciclo1_lectura_patron_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal1_ciclo1_lectura_IBC_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal1_ciclo1_lectura_patron_descenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal1_ciclo1_lectura_IBC_descenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal1_ciclo2_lectura_patron_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal1_ciclo2_lectura_IBC_ascenso}}</td>
+        
+              </tr>
+              <tr>
+                <td class="tg-0pky">{{form.valor_nominal2}}</td>
+                <td class="tg-0pky">{{form.valor_nominal2_ciclo1_lectura_patron_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal2_ciclo1_lectura_IBC_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal2_ciclo1_lectura_patron_descenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal2_ciclo1_lectura_IBC_descenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal2_ciclo2_lectura_patron_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal2_ciclo2_lectura_IBC_ascenso}}</td>
+        
+              </tr>
+              <tr>
+                <td class="tg-0pky">{{form.valor_nominal3}}</td>
+                <td class="tg-0pky">{{form.valor_nominal3_ciclo1_lectura_patron_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal3_ciclo1_lectura_IBC_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal3_ciclo1_lectura_patron_descenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal3_ciclo1_lectura_IBC_descenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal3_ciclo2_lectura_patron_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal3_ciclo2_lectura_IBC_ascenso}} </td>
+        
+              </tr>
+              <tr>
+                <td class="tg-0pky">{{form.valor_nominal4}} </td>
+                <td class="tg-0pky">{{form.valor_nominal4_ciclo1_lectura_patron_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal4_ciclo1_lectura_IBC_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal4_ciclo1_lectura_patron_descenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal4_ciclo1_lectura_IBC_descenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal4_ciclo2_lectura_patron_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal4_ciclo2_lectura_IBC_ascenso}}</td>
+            
+              </tr>
+              <tr>
+                <td class="tg-0pky">{{form.valor_nominal5}}</td>
+                <td class="tg-0pky">{{form.valor_nominal5_ciclo1_lectura_patron_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal5_ciclo1_lectura_IBC_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal5_ciclo1_lectura_patron_descenso }}</td>
+                <td class="tg-0pky">{{form.valor_nominal5_ciclo1_lectura_IBC_descenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal5_ciclo2_lectura_patron_ascenso}}</td>
+                <td class="tg-0pky">{{form.valor_nominal5_ciclo2_lectura_IBC_ascenso}}</td>
+         
+              </tr>
+            
+            </tbody>
+            </table>
+
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+    </form>
+</div>
+{% endblock %}

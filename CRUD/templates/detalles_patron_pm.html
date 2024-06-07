@@ -1,0 +1,37 @@
+<!-- your_template.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle Patron</title>
+</head>
+<body>
+    <!-- Display the HTML table -->
+    {{ html_table | safe }}
+
+    <!-- Display the form -->
+    <form method="post">
+        {% csrf_token %}
+        <table>
+          <thead>
+            <tr>
+              {% for field in form.visible_fields %}
+                <th>{{ field.label }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {% for field in form.visible_fields %}
+                <td>{{ field }}</td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+        <input type="submit" value="Submit">
+      </form>
+      
+      
+
+</body>
+</html>

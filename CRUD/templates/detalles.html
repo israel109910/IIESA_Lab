@@ -1,0 +1,85 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Detalles Folio {{x.id}}
+{% endblock %}
+
+{% block content %}
+
+<style>
+  body {
+      background-color: #f8f9fa;
+  }
+
+  .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+      color: #343a40;
+  }
+
+  p {
+      color: #343a40;
+  }
+
+  a {
+      color: #dc3545;
+      text-decoration: none;
+  }
+
+  a:hover {
+      text-decoration: underline;
+  }
+
+  .detalles {
+      border-top: 2px solid #dc3545;
+      padding-top: 20px;
+      margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Folio {{ mifolio.id|stringformat:"03d" }}</h1>
+  <p><a href="/">Inicio</a></p>
+
+  <h2>IIESA-CMLD-{{ mifolio.id|stringformat:"03d" }}-2024</h2>
+
+  <h3><a href="{{ mifolio.id }}/editar">Editar Informacion</a></h3>
+
+  <h3><a href="{{ mifolio.id }}/toma_datos">Toma de Datos</a></h3>
+
+  <div class="detalles">
+      <p>Encargado: {{ mifolio.responsable }}</p>
+      <p>Fecha de asignacion de folio: {{ mifolio.fecha_asignacion }}</p>
+      <h4>DATOS GENERALES</h4>
+      <p>Solicitud de servicio: {{ mifolio.solicitud_servicio }}</p>
+      <p>Lugar de calibracion: {{ mifolio.lugar_de_calibracion }}</p>
+      <p>Proceimiento Utilizado: {{ mifolio.procedimiento_utilizado }}</p>
+      <p>Magnitud: {{ mifolio.magnitud }}</p>
+      <p>Metodo: {{ mifolio.metodo }}</p>
+      <p>Fecha de recepcion: {{ mifolio.fecha_recepcion }}</p>
+      <p>Fecha de Calibracion: {{ mifolio.fecha_calibracion }}</p>
+      <p>Fecha de emision: {{ mifolio.fecha_emision }}</p>
+      <p>Fecha de Entrega IBC: {{ mifolio.fecha_entrega_IBC }}</p>
+      <h4>Datos del Cliente</h4>
+      <p>Nombre o Razon Social: {{ mifolio.cliente_nombre_razon_social }}</p>
+      <p>Direccion: {{ mifolio.cliente_direccion }}</p>
+  </div>
+
+  <h3><a href="{{ mifolio.id }}/imprimir">Imprimir Certificado</a></h3>
+  <h3><a href="{{ mifolio.id }}/calculos">Verificar Cálculos</a></h3>
+</div>
+</body>
+
+
+
+{%endblock content%}
+
+

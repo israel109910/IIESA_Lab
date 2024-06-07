@@ -1,0 +1,184 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+}
+.imprimir_aside{
+    font-size: 8px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    align-items: center;
+    margin-left: 5%;
+    position: fixed;
+    width: 15%;
+    top: 10PX;
+    left: 0;
+    height: 100%;
+    background-image: linear-gradient(to top, #ebf8e1 0%, #a7a6a6 50%, #ebf8e1 100%);
+
+}
+.imprimir_aside img {
+    width: auto;    position: relative;
+    margin-top: 10%;
+    margin-left: 10%;
+}
+.header_certificado{
+    width: 60%;
+    display: block;
+    float: right;
+    margin-top: 5%;
+    padding: 0;
+    margin-right: 5%;
+
+    
+}
+.header_certificado h1{
+    float: right;
+    padding: 0;
+    margin-bottom: 0;
+}
+.header_certificado table{
+    border-collapse: collapse;
+    margin-top: 15px;
+    float: right;
+    padding: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+    text-align: justify;
+   
+}
+.header_certificado td:nth-child(3){
+    border-left: 5px solid red;
+}
+.header_certificado td:first-child{
+    border-left: 5px solid red;
+}
+.redline {
+    float: right;
+    margin-top: 0;
+    width: 60%;
+    border-bottom: 15px solid red;
+    border-left: 55px solid transparent;
+    border-right: 0 solid transparent;
+    border-top: 0 solid transparent;
+}
+.datos_cliente{
+display: inline-block;
+margin-left: 25%;
+padding: 0;
+margin-top: 2%;
+}
+.datos_cliente h2 {
+    padding-right: 20px;
+    display: inline-block;
+    background-color:gray ;
+    border-radius: 5px;
+    margin-bottom: 0;
+    padding :5px 20px 5px 5px;
+    
+}
+
+.datos_cliente table{
+   
+    border-spacing: 0;
+    
+    padding: 15px;
+    margin-top: 0;
+    width: 940px;
+    border: 5px solid gray;
+    border-radius: 10px;
+
+}
+.datos_cliente td:first-child{
+    border-left:5px solid red}
+.datos_instrumento{
+    display: inline-block;
+margin-left: 25%;
+padding: 0;
+margin-top: 2%;
+}
+.datos_instrumento h2 {
+    padding-right: 20px;
+    display: inline-block;
+    background-color:gray ;
+    border-radius: 5px;
+    margin-bottom: 0;
+    padding :5px 20px 5px 5px;
+}
+.datos_instrumento table {
+
+    border-spacing: 0;
+    
+    padding: 15px;
+    margin-top: 0;
+    width: 940px;
+    border: 5px solid gray;
+    border-radius: 10px;
+}
+.datos_instrumento td:first-child{
+    border-left:5px solid red
+}
+.datos_instrumento td:nth-child(3){
+    border-left:5px solid red
+
+}
+
+.datos_patron {
+    display: inline-block;
+    margin-left: 25%;
+    padding: 0;
+    margin-top: 2%;
+}
+.datos_patron h2{
+    padding-right: 20px;
+    display: inline-block;
+    background-color:gray ;
+    border-radius: 5px;
+    margin-bottom: 0;
+    padding :5px 20px 5px 5px;
+
+}
+.datos_patron table {
+    border-spacing: 0;
+    
+    padding: 15px;
+    margin-top: 0;
+    width: 940px;
+    border: 5px solid gray;
+    border-radius: 10px;
+
+}
+.datos_patron td:first-child{
+    border-left:5px solid red
+}
+.datos_patron td:nth-child(3){
+    border-left:5px solid red
+
+}
+
+#myChart {
+    display: flex;
+margin-left: 35%;
+padding: 0;
+margin-top: 2%;}
+
+#logo_ema {
+    width: 100px;  /* Ajusta el tamaño según sea necesario */
+   margin-bottom: 20px;
+   margin-top: 175%;
+   display: flex;
+   align-items: flex-end;
+    
+}
+.p_final {
+    margin-left: 25%;
+    margin-top: 30px;
+    border: 2px solid green;  /* Borde verde */
+    border-radius: 15px;  
+    padding: 15px;
+}
+
+
+

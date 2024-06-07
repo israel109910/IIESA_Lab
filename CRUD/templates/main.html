@@ -1,0 +1,53 @@
+{% extends "master.html" %}
+
+{% block title %}
+ Folios 2024
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="display-4 text-center mb-5">Folios IIESA | Laboratorio de Mediciones</h1>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card border-danger mb-3">
+          <div class="card-body">
+            <h5 class="card-title text-danger">Presión Manométrica</h5>
+            <p class="card-text">Mediciones de presión utilizando manómetros.</p>
+            <a href="presion_manometrica/" class="btn btn-danger">Explorar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-danger mb-3">
+          <div class="card-body">
+            <h5 class="card-title text-danger">Presión Diferencial</h5>
+            <p class="card-text">Mediciones de presión diferencial.</p>
+            <a href="presion_diferencial/" class="btn btn-danger">Explorar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card border-danger mb-3">
+          <div class="card-body">
+            <h5 class="card-title text-danger">Temperatura</h5>
+            <p class="card-text">Mediciones de temperatura.</p>
+            <a href="temperatura/" class="btn btn-danger">Explorar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-danger mb-3">
+          <div class="card-body">
+            <h5 class="card-title text-danger">Flujo Volumétrico Dinámico</h5>
+            <p class="card-text">Mediciones de flujo volumétrico dinámico.</p>
+            <a href="flujo_vd/" class="btn btn-danger">Explorar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

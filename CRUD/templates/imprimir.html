@@ -1,0 +1,491 @@
+{% extends "master_imprimir.html" %}
+
+{% block title %}
+  Detalles Folio {{x.id}}
+{% endblock %}
+
+{% block content %}
+
+<div class = "imprimir_contenido">
+ <aside class="imprimir_aside">
+    <img src="https://www.iiesa-solutions.com.mx/wp-content/uploads/2019/05/IIESA-LOGOTIPO-web5.png">
+
+    <p>INGENIERIA E INSTALACIONES ESPECIALES SA DE CV</p>
+
+    <img id ="logo_ema" src="https://www.ema.org.mx/portal_v3/images/logo_ema1.png">
+
+ </aside>
+
+ <header class = "header_certificado">
+  <H1><b>CERTIFICADO DE CALIBRACION</b></H1>
+  <div class="redline"></div>
+  <table class = "header_table">
+    <tr>
+      <td><b>Registro:  &emsp; </b></td>
+      <td>{{mifolio.id|stringformat:"03d" }}/2024</td>
+      <td>Fecha de recepcion : &emsp; </td>
+      <td>{{mifolio.fecha_recepcion|date:"Y-m-d"}}</td>
+    </tr>
+    <tr>
+      <td>No. De Certificado: </td>
+      <td>IIESA-CMLD-{{mifolio.id|stringformat:"03d" }}-2024</td>
+      <td>Fecha de Calibracion : </td>
+      <td>{{mifolio.fecha_calibracion|date:"Y-m-d"}}</td>
+    </tr>
+    <tr>
+      <td>Solicitud de servicio : &emsp;  </td>
+      <td>{{mifolio.solicitud_servicio}}</td>
+      <td>Fecha de emision : &emsp; </td>
+      <td>{{mifolio.fecha_emision|date:"Y-m-d"}} </td>
+    </tr>
+  </table>
+ </header>
+ <div class="datos_cliente">
+  <h2>DATOS DEL CLIENTE</h2>
+  <table >
+    <tr>
+      <td> Nombre o Razon Social: &emsp; {{mifolio.cliente_nombre_razon_social}}</td>
+    </tr>
+    <tr>
+      <td>Direccion :  &emsp;{{mifolio.cliente_direccion}} </td>
+    </tr>
+  </table>
+ </div>
+ <div class="datos_instrumento">
+  <h2>DATOS DEL INSTRUMENTO CALIBRADO</h2>
+  <table>
+    <tr>
+      <td>Descripcion: &emsp;</td>
+      <td>{{mifolio.instrumento_descripcion}}</td>
+      <td>Clase de Exactitud: &emsp; </td>
+      <td>{{mifolio.C_E}}</td>
+    </tr>
+    <tr>
+      <td>Marca: &emsp;</td>
+      <td>{{mifolio.instrumento_marca}}</td>
+      <td>Unidades</td>
+      <td id ="unidades">{{mifolio.unidades_toma_datos}}</td>
+    </tr>
+    <tr>
+      <td>Modelo: &emsp;</td>
+      <td>{{mifolio.instrumento_modelo}}</td>
+      <td>Servicio</td>
+      <td>{{mifolio.servicio}}</td>
+    </tr>
+    <tr>
+      <td>No. de Serie: &emsp;</td>
+      <td>{{mifolio.instrumento_numero_serie}}</td>
+      <td>Ubicación</td>
+      <td>{{mifolio.ubicacion}}</td>
+    </tr>
+    <tr>
+      <td>Resolucion:&emsp; </td>
+      <td>{{mifolio.instrumento_resolucion}}</td>
+      <td>Otra Identificacion:&emsp;</td>
+      <td>{{mifolio.instrumento_otra_identificacion}}</td>
+    </tr>
+    <tr>
+      <td>Intervalo De Medida</td>
+      <td>{{mifolio.instrumento_intervalo_de_medida}}</td>
+    </tr>
+  </table>
+ </div>
+ <div class = "datos_patron">
+    <h2>PATRON DE MEDIDA</h2>
+    <table>
+        <tr>
+          <td>Descripcion: &emsp;</td>
+          <td>{{mifolio.patron_id_presion_manometrica.patron_descripcion}}</td>
+          <td>Intervalo De Medida</td>
+          <td>{{mifolio.patron_id_presion_manometrica.patron_intervalo_medida}}</td>
+        </tr>
+        <tr>
+            <td>Identificación: &emsp;</td>
+            <td>{{mifolio.patron_id_presion_manometrica.patron_identificacion}}</td>
+            <td>Certificado</td>
+            <td>{{mifolio.patron_id_presion_manometrica.patron_certificado}}</td>
+        </tr>
+        <tr>
+            <td>Modelo</td>
+            <td>{{mifolio.patron_id_presion_manometrica.patron_modelo}}</td>
+            <td>Vigencia Del Certificado</td>
+            <td>{{mifolio.patron_id_presion_manometrica.patron_vigencia}}</td>
+        </tr>
+        <tr>
+            <td>No. De Serie</td>
+            <td> {{mifolio.patron_id_presion_manometrica.patron_numero_serie}}</td>
+    </table>
+ </div>
+
+ <div class = "datos_patron">
+  <h2>DATOS DE LA CALIBRACION</h2>
+  
+  <table>
+      <tr>
+        <td>Lugar de calibración: &emsp;</td>
+        <td>{{mifolio.lugar_de_calibracion}}</td>
+        <td> Humedad Relativa : &emsp;</td>
+        <td>{{humedad_relativa_prom}}</td>
+      </tr>
+      <tr>
+          <td>Procedimiento utilizado: &emsp;</td>
+          <td>{{mifolio.procedimiento_utilizado}}&emsp;%H.R.</td>
+          <td>Presion Barométrica: &emsp;</td>
+          <td>{{presion_barometrica_prom}} &emsp; Pa</td>
+      </tr>
+      <tr>
+          <td>Metodo de Calibración:&emsp;</td>
+          <td>{{mifolio.metodo}}</td>
+          <td>Temperatura:&emsp;</td>
+          <td>{{temperatura_amb_prom}}</td>
+      </tr>
+      <tr>
+          <td>Fluido utilizado: &emsp;</td>
+          <td> Aceite</td>
+      </tr>
+      <tr>
+        <td>Magnitud calibrada: &emsp;</td>
+        <td> {{mifolio.magnitud}}</td>
+    </tr>
+    <tr>
+      <td> Trazabilidad: &emsp;</td>
+      <td style="width: 500px; display: flex; position: absolute;">{{ mifolio.patron_id_presion_manometrica.patron_trazabilidad }}</td>
+
+  </tr>
+  </table>
+<h2>RESULTADOS DE LA CALIBRACIÓN</h2>
+    <table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-0lax" colspan="2">LECTURA DEL PATRON</th>
+        <th class="tg-0lax" colspan="2">LECTURA DEL IBC</th>
+        <th class="tg-0lax" colspan="3">ERROR </th>
+        <th class="tg-0lax" colspan="3">U K=2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="tg-0lax">kPa</td>
+        <td class="tg-0lax" >{{mifolio.unidades_toma_datos}}</td>
+        <td class="tg-0lax">kPa</td>
+        <td class="tg-0lax">{{mifolio.unidades_toma_datos}}</td>
+        <td class="tg-0lax">kPa</td>
+        <td class="tg-0lax">{{mifolio.unidades_toma_datos}}</td>
+        <td class="tg-0lax">%</td>
+        <td class="tg-0lax">kPa</td>
+        <td class="tg-0lax " >{{mifolio.unidades_toma_datos}}</td>
+        <td class="tg-0lax">%</td>
+      </tr>
+      <tr class = "rowL">
+        <td class = "lectura1">  {{promedios_finales_lcp.nominal1|stringformat:".2f" }}</td>
+        <td  class="tg-0lax lectura_o" >{{ mifolio.valor_nominal1_ciclo1_lectura_patron_ascenso |stringformat:".2f" }}</td>
+        <td class="lectura1IBC" id="primerValorIBC">{{promedios_finales_lcetibc.nominal1|stringformat:".2f" }}</td>
+        <td class="lectura_oIBC">{{ mifolio.valor_nominal1_ciclo1_lectura_IBC_ascenso |stringformat:".2f" }}</td>
+        <td class="tg-0lax E" >{{E_values.nominal1|stringformat:".2f" }}</td>
+        <td class="tg-0lax E_O"></td>
+        <td class="tg-0lax porcentaje"></td>
+        <td class="tg-0lax U">{{ u_total_duplicado.u_1 |stringformat:".2f" }}</td>
+        <td class="tg-0lax U_O"></td>
+        <td class="tg-0lax porcentaje_U"></td>
+      </tr>
+      <tr class = "rowL">
+        <td class = "lectura1">  {{promedios_finales_lcp.nominal2|stringformat:".2f" }}</td>
+        <td  class="tg-0lax lectura_o" >{{ mifolio.valor_nominal2_ciclo1_lectura_patron_ascenso|stringformat:".2f"  }}</td>
+        <td class="lectura1IBC">{{promedios_finales_lcetibc.nominal2}}</td>
+        <td class="lectura_oIBC">{{ mifolio.valor_nominal2_ciclo1_lectura_IBC_ascenso |stringformat:".2f" }}</td>
+        <td class="tg-0lax E" >{{E_values.nominal2|stringformat:".2f" }}</td>
+        <td class="tg-0lax E_O"></td>
+        <td class="tg-0lax porcentaje"></td>
+        <td class="tg-0lax U">{{ u_total_duplicado.u_2|stringformat:".2f"  }}</td>
+        <td class="tg-0lax U_O"></td>
+        <td class="tg-0lax porcentaje_U"></td>
+      </tr>
+      <tr class = "rowL">
+        <td class = "lectura1">  {{promedios_finales_lcp.nominal3|stringformat:".2f" }}</td>
+        <td  class="tg-0lax lectura_o" >{{ mifolio.valor_nominal3_ciclo1_lectura_patron_ascenso|stringformat:".2f"  }}</td>
+        <td class="lectura1IBC">{{promedios_finales_lcetibc.nominal3|stringformat:".2f" }}</td>
+        <td class="lectura_oIBC">{{ mifolio.valor_nominal3_ciclo1_lectura_IBC_ascenso |stringformat:".2f" }}</td>
+        <td class="tg-0lax E" >{{E_values.nominal3|stringformat:".2f" }}</td>
+        <td class="tg-0lax E_O"></td>
+        <td class="tg-0lax porcentaje"></td>
+        <td class="tg-0lax U">{{ u_total_duplicado.u_3 |stringformat:".2f" }}</td>
+        <td class="tg-0lax U_O"></td>
+        <td class="tg-0lax porcentaje_U"></td>
+      </tr>
+      <tr class = "rowL">
+        <td class = "lectura1">  {{promedios_finales_lcp.nominal4|stringformat:".2f" }}</td>
+        <td  class="tg-0lax lectura_o" >{{ mifolio.valor_nominal4_ciclo1_lectura_patron_ascenso |stringformat:".2f" }}</td>
+        <td class="lectura1IBC">{{promedios_finales_lcetibc.nominal4|stringformat:".2f" }}</td>
+        <td class="lectura_oIBC">{{ mifolio.valor_nominal4_ciclo1_lectura_IBC_ascenso |stringformat:".2f" }}</td>
+        <td class="tg-0lax E" >{{E_values.nominal4|stringformat:".2f" }}</td>
+        <td class="tg-0lax E_O"></td>
+        <td class="tg-0lax porcentaje"></td>
+        <td class="tg-0lax U">{{ u_total_duplicado.u_4|stringformat:".2f"  }}</td>
+        <td class="tg-0lax U_O"></td>
+        <td class="tg-0lax porcentaje_U"></td>
+      </tr>
+      <tr class = "rowL">
+        <td class = "lectura1">  {{promedios_finales_lcp.nominal5|stringformat:".2f" }}</td>
+        <td  class="tg-0lax lectura_o" >{{ mifolio.valor_nominal5_ciclo1_lectura_patron_ascenso|stringformat:".2f"  }}</td>
+        <td class="lectura1IBC" id="ultimoValorIBC">{{promedios_finales_lcetibc.nominal5|stringformat:".2f" }}</td>
+        <td class="lectura_oIBC">{{ mifolio.valor_nominal5_ciclo1_lectura_IBC_ascenso|stringformat:".2f"  }}</td>
+        <td class="tg-0lax E" >{{E_values.nominal5|stringformat:".2f" }}</td>
+        <td class="tg-0lax E_O"></td>
+        <td class="tg-0lax porcentaje"></td>
+        <td class="tg-0lax U">{{ u_total_duplicado.u_5 |stringformat:".2f" }}</td>
+        <td class="tg-0lax U_O"></td>
+        <td class="tg-0lax porcentaje_U"></td>
+      </tr>
+     
+
+    </tbody>
+    </table>
+    <span><b>NOTA:</b> El factor de conversión a unidades del sistema internacional de unidades fue tomado Capítulo V de la publicación CNM-MMM-PT-003</span>
+    
+</div>
+<style>
+  canvas {
+      display: block;
+      margin: auto;
+      width: 50%;
+      height: 50%;
+  }
+</style>
+<canvas id="myChart"></canvas>
+
+<p class ="p_final">Los resultados se obtuvieron del promedio de cinco mediciones y adicionando todas las correspondientes correcciones que apliquen se reporta la incertidumbre expandida con un factor de cobertura k=2 para un intervalo de confianza del 95 %. La incertidumbre de medida fue estimada según la NMX-CH-140-IMNC-2002; de acuerdo a su frecuencia de uso y programa de calibración establecido este certificado sólo ampara las mediciones reportadas en el momento y condiciones ambientales y de uso en que se realizó esta calibración o medición. Este documento es válido sólo en original y con las correspondientes firmas. No se autoriza la reproducibilidad parcial o total de este documento sin el permiso expreso por el Laboratorio de Calibración IIESA. Descripción del método utilizado: El método se llama calibración de manómetros y transmisores con indicador de presión de lectura directa por comparación se realiza mediante el uso de una bomba generadora de presión y un manómetro patrón de referencia. Nota: este certificado cumple con los requisitos de la norma NMX-EC-17025-IMNC-2018.
+</p>
+</div>
+
+
+
+<script>
+  
+
+
+
+  function valorkPaAOriginalPatron(rowElement) {
+    let lecturaElement = rowElement.querySelector('.lectura1');
+    let unidades = document.getElementById("unidades").textContent;
+    let lecturaResultadoElement = rowElement.querySelector('.lectura_o');
+
+    let lecturaText = lecturaElement.textContent;
+    let lectura = parseFloat(lecturaText.replace(/,/g, '.'));
+
+    if (unidades === "Lb*f/in2") {
+        lecturaResultadoElement.textContent = (lectura / 6.89476).toFixed(2);
+    } else if (unidades === "kg*f/cm2") {
+        lecturaResultadoElement.textContent = (lectura / 98.0665).toFixed(2);
+    } else {
+        console.error("Unidad de medida no reconocida:", unidades);
+    }
+}
+
+const conversionValores = document.querySelectorAll('.rowL');
+conversionValores.forEach(valorkPaAOriginalPatron);
+
+
+function valorkPaAOriginalIBC(rowElement) {
+  let lecturaElement = rowElement.querySelector('.lectura1IBC');
+  let unidades = document.getElementById("unidades").textContent;
+  let lecturaResultadoElement = rowElement.querySelector('.lectura_oIBC');
+
+  let lecturaText = lecturaElement.textContent;
+  let lectura = parseFloat(lecturaText.replace(/,/g, '.'));
+
+  if (unidades === "Lb*f/in2") {
+      lecturaResultadoElement.textContent = (lectura / 6.89476).toFixed(2);
+  } else if (unidades === "kg*f/cm2") {
+      lecturaResultadoElement.textContent = (lectura / 98.0665).toFixed(2);
+  } else {
+      console.error("Unidad de medida no reconocida:", unidades);
+  }
+}
+
+const conversionValoresIBC = document.querySelectorAll('.rowL');
+conversionValoresIBC.forEach(valorkPaAOriginalIBC);
+
+
+
+
+function conversionAOriginalE(rowElement) {
+  let lecturaElement = rowElement.querySelector('.E');
+  let unidades = document.getElementById("unidades").textContent;
+  let lecturaResultadoElement = rowElement.querySelector('.E_O');
+
+  let lecturaText = lecturaElement.textContent;
+  let lectura = parseFloat(lecturaText.replace(/,/g, '.'));
+
+  if (unidades === "Lb*f/in2") {
+      lecturaResultadoElement.textContent = (lectura / 6.89476).toPrecision(2);
+  } else if (unidades === "kg*f/cm2") {
+      lecturaResultadoElement.textContent = (lectura / 98.0665).toPrecision(2);
+  } else {
+      console.error("Unidad de medida no reconocida:", unidades);
+  }
+}
+
+const conversionValoresE = document.querySelectorAll('.rowL');
+conversionValoresE.forEach(conversionAOriginalE);
+
+
+// Función para calcular y mostrar el resultado
+function calcularPorcentaje(rowElement) {
+  // Obtener los elementos de las celdas necesarias
+  let eElement = rowElement.querySelector('.E').textContent;
+  const primerValorIBCElement = document.getElementById('primerValorIBC').textContent;
+  const ultimoValorIBCElement = document.getElementById('ultimoValorIBC').textContent;
+  let porcentajeElement = rowElement.querySelector('.porcentaje');
+
+  // Obtener los valores de E y lectura1IBC
+  let eValue = parseFloat(eElement.replace(/,/g, '.'));
+  let primerValorIBC = parseFloat(primerValorIBCElement.replace(/,/g, '.'));
+  let ultimoValorIBC = parseFloat(ultimoValorIBCElement.replace(/,/g, '.'));
+
+  // Calcular el resultado
+  let resultado = (eValue / (primerValorIBC - ultimoValorIBC))*100;
+
+  // Mostrar el resultado en la celda con clase "porcentaje"
+  porcentajeElement.textContent = resultado.toPrecision(2); // Mostrar el resultado con dos decimales
+}
+
+// Seleccionar todas las filas de la tabla
+const filasTabla = document.querySelectorAll('.rowL');
+
+// Iterar sobre cada fila y calcular el resultado
+filasTabla.forEach(calcularPorcentaje);
+
+
+
+
+
+
+function conversionAOriginalU(rowElement) {
+  let lecturaElement = rowElement.querySelector('.U');
+  let unidades = document.getElementById("unidades").textContent;
+  let lecturaResultadoElement = rowElement.querySelector('.U_O');
+
+  let lecturaText = lecturaElement.textContent;
+  let lectura = parseFloat(lecturaText.replace(/,/g, '.'));
+
+  if (unidades === "Lb*f/in2") {
+      lecturaResultadoElement.textContent = (lectura / 6.89476).toPrecision(2);
+  } else if (unidades === "kg*f/cm2") {
+      lecturaResultadoElement.textContent = (lectura / 98.0665).toPrecision(2);
+  } else {
+      console.error("Unidad de medida no reconocida:", unidades);
+  }
+}
+
+const conversionValoresU = document.querySelectorAll('.rowL');
+conversionValoresU.forEach(conversionAOriginalU);
+
+
+
+function calcularPorcentaje2(rowElement) {
+  // Obtener los elementos de las celdas necesarias
+  let eElement = rowElement.querySelector('.U').textContent;
+  const primerValorIBCElement = document.getElementById('primerValorIBC').textContent;
+  const ultimoValorIBCElement = document.getElementById('ultimoValorIBC').textContent;
+  let porcentajeElement = rowElement.querySelector('.porcentaje_U');
+
+  // Obtener los valores de E y lectura1IBC
+  let eValue = parseFloat(eElement.replace(/,/g, '.'));
+  let primerValorIBC = parseFloat(primerValorIBCElement.replace(/,/g, '.'));
+  let ultimoValorIBC = parseFloat(ultimoValorIBCElement.replace(/,/g, '.'));
+
+  // Calcular el resultado
+  let resultado = (eValue / (primerValorIBC - ultimoValorIBC))*100;
+
+  // Mostrar el resultado en la celda con clase "porcentaje"
+  porcentajeElement.textContent = resultado.toPrecision(2); // Mostrar el resultado con dos decimales
+}
+
+// Seleccionar todas las filas de la tabla
+const filasTabla2 = document.querySelectorAll('.rowL');
+
+// Iterar sobre cada fila y calcular el resultado
+filasTabla2.forEach(calcularPorcentaje2);
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Obtener las referencias de las celdas de la tabla
+  const lecturaIBCElements = document.querySelectorAll('.lectura1IBC');
+  const UElements = document.querySelectorAll('.U');
+  const EElements = document.querySelectorAll('.E');
+
+  // Crear arreglos para almacenar los datos
+  const lecturaIBCData = [];
+  const UData = [];
+  const EData = [];
+
+  // Iterar sobre las celdas y extraer los datos
+  lecturaIBCElements.forEach(element => {
+      lecturaIBCData.push(parseFloat(element.textContent));
+  });
+
+  UElements.forEach(element => {
+      UData.push(parseFloat(element.textContent));
+  });
+
+  EElements.forEach(element => {
+      EData.push(parseFloat(element.textContent));
+  });
+
+  // Crear la gráfica
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'scatterWithErrorBars',
+      data: {
+          datasets: [{
+              label: 'Datos',
+              data: lecturaIBCData.map((value, index) => ({
+                  x: value,
+                  y: EData[index],
+                  yMin: EData[index] - (UData[index] / 2), // Valores mínimos de error
+                  yMax: EData[index] + (UData[index] / 2), // Valores máximos de error
+              })),
+              backgroundColor: 'rgba(255, 0, 0, 1)',
+              borderColor: 'rgba(255, 0, 0, 1)',
+              pointRadius: 5,
+              pointHoverRadius: 7,
+              errorBars: {
+                  y: {
+                      symmetric: true,
+                  },
+              },
+          }]
+      },
+      options: {
+          scales: {
+              x: {
+                  type: 'linear',
+                  position: 'bottom'
+              },
+              y: {
+                  type: 'linear',
+                  position: 'left'
+              }
+          },
+          plugins: {
+              tooltip: {
+                  callbacks: {
+                      label: function(context) {
+                          var label = context.dataset.label || '';
+                          if (label) {
+                              label += ': ';
+                          }
+                          if (context.parsed.y !== null) {
+                              label += '(' + context.parsed.x + ', ' + context.parsed.y + ') ± ' + Math.abs(context.parsed.y - context.parsed.yMin);
+                          }
+                          return label;
+                      }
+                  }
+              }
+          }
+      }
+  });
+});
+
+</script>
+
+{%endblock content%}
