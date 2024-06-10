@@ -23,14 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-import environ
 
-# Carga las variables de entorno desde el archivo .env
-env = environ.Env()
-environ.Env.read_env()
-
-# Obtiene la SECRET_KEY desde las variables de entorno
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY='*^stg^5^z0zix*)2o&bumyx*yxgchm!slg9-y12(5axebs9pc8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
