@@ -16,6 +16,7 @@ from .forms import TomaDatosManometricoForm
 from .forms import PatronesPresionManometricaForm
 from .forms import crearPresionManometricaForm
 from .forms import crearPresionDiferencialForm
+from .forms import crearTemperaturaForm
 from .forms import EditarFormPresionDiferencial
 from .forms import TomaDatosPresionDiferencialForm
 
@@ -23,9 +24,11 @@ from django.shortcuts import render, redirect
 
 from django.http import HttpResponseRedirect
 
+from django.contrib.auth.decorators import login_required
 
 
 
+@login_required
 
 def presion_manometrica(request):
   misfolios = PresionManometrica.objects.all().values().order_by('-id')
@@ -50,6 +53,7 @@ def crear_presion_manometrica(request):
                 'crear_presion_manometrica.html',
                 {'form': form})
   
+@login_required
   
 def presion_diferencial(request):
   misfolios = PresionDiferencial.objects.all().values()
@@ -83,6 +87,25 @@ def temperatura(request):
     'misfolios': misfolios,
   }
   return HttpResponse(template.render(context, request))
+
+def crear_temperatura (request):
+  if request.method == 'POST':
+        form = crearTemperaturaForm(request.POST)
+        if form.is_valid():
+            # create a new `Band` and save it to the db
+            folioTemperatura = form.save()
+         
+            return redirect('presion_diferencial')
+
+  else:
+        form = crearTemperaturaForm()
+
+  return render(request,
+                'crear_presion_diferencial.html',
+                {'form': form})
+  
+
+
 def flujo_volumetrico_dinamico(request):
   misfolios = FlujoVolumetricoDinamico.objects.all().values()
   template = loader.get_template('flujo_volumetrico_dinamico.html')

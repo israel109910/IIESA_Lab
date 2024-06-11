@@ -2,9 +2,11 @@ from django import forms
 from .models import PresionManometrica
 from .models import PatronesPresionManometrica
 from .models import PresionDiferencial
+from .models import Temperatura
 
 
 
+  
 
 
 class crearPresionManometricaForm(forms.ModelForm):
@@ -150,6 +152,12 @@ class TomaDatosPresionDiferencialForm(forms.ModelForm):
   )
     
 
+
+
+class crearTemperaturaForm(forms.ModelForm):
+    class Meta:
+        model = Temperatura
+        fields = 'fecha_asignacion', 'responsable'
 
 
 

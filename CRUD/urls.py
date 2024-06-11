@@ -1,13 +1,16 @@
-from django.urls import path
+from django.urls import path, include
+
 from .import views 
 
 
+
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
+
     path('', views.main, name='main'),
     path('presion_manometrica/', views.presion_manometrica, name='presion_manometrica'),
     path('presion_manometrica/nuevo', views.crear_presion_manometrica, name='crear_presion_manometrica'),
 
-    path('temperatura/', views.temperatura, name='temperatura'),
     path('flujo_vd/', views.flujo_volumetrico_dinamico, name='flujo_volumetrico_dinamico'),
     
     path('presion_manometrica/patrones', views.patrones_presion_manometrica, name='presion_manometrica_patrones'),
@@ -28,6 +31,9 @@ urlpatterns = [
     path('presion_diferencial/detalles/<int:id>/calculos', views.calculos_pd, name='calculos_pd'),
     path('presion_diferencial/detalles/<int:id>/imprimir', views.imprimirPresionDiferencial, name='imprimir_pd'),
 
+
+    path('temperatura/', views.temperatura, name='temperatura'),
+    path('temperatura/nuevo', views.crear_temperatura, name='crear_temperatura'),
 
 
   
